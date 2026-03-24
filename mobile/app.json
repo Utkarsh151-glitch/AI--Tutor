@@ -1,0 +1,20 @@
+{
+  "expo": {
+    "name": "AI Algorithm Tutor",
+    "slug": "ai-algorithm-tutor",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#070B18"
+      }
+    }
+  }
+}
