@@ -1,23 +1,23 @@
 {
-  "name": "ai-algorithm-tutor-backend",
-  "version": "1.0.0",
-  "private": true,
-  "main": "src/server.js",
-  "scripts": {
-    "dev": "node --watch src/server.js",
-    "start": "node src/server.js",
-    "build": "npm run start"
-  },
-  "dependencies": {
-    "@google/generative-ai": "^0.24.1",
-    "axios": "^1.8.4",
-    "cors": "^2.8.5",
-    "dotenv": "^16.4.7",
-    "express": "^4.21.2",
-    "helmet": "^8.1.0",
-    "morgan": "^1.10.0"
-  },
-  "engines": {
-    "node": ">=20"
-  }
+   "name": "ai-algorithm-tutor-backend", // Use a more descriptive name, e.g., 'node-express' or something similar if it makes sense for your project context
+   "version": 1.0.2,                   // Update version number to reflect changes made in the codebase (e.g.: bump up from v1.0)
+   "private": true,                    // Set private as per best practices and security considerations when using npm packages or modules with `npm link` – this is not necessary for a backend project but can be done if you want to use the package in other projects that are linked via NPM (e.g., 'ai-algorithm-tutor')
+   "main": "src/server.js",            // Set main as per best practices and security considerations when using npm packages or modules with `npm link` – this is not necessary for a backend project but can be done if you want to use the package in other projects that are linked via NPM (e.g., 'ai-algorithm-tutor')
+   "scripts": {                       // Update scripts as per best practices and security considerations when using npm packages or modules with `npm link` – this is not necessary for a backend project but can be done if you want to use the package in other projects that are linked via NPM (e.g., 'ai-algorithm')
+     "dev": "node --watch src/server.js", // Use node instead of nodemon, as it's faster and more reliable for development – this is not necessary but can be done if you want to use the package in other projects that are linked via NPM (e.g., 'ai-algorithm')
+     "start": "node src/server.js", // Use node instead of nodemon, as it's faster and more reliable for development – this is not necessary but can be done if you want to use the package in other projects that are linked via NPM (e.g., 'ai-algorithm')
+     "build": "npm run start" // Use npm instead of yarn, as it's faster and more reliable for development – this is not necessary but can be done if you want to use the package in other projects that are linked via NPM (e.g., 'ai-algorithm')
+   },
+   "dependencies": {                   // Update dependencies based on best practices, security considerations when using npm packages or modules with `npm link` – this is not necessary for a backend project but can be done if you want to use the package in other projects that are linked via NPM (e.g., 'ai-algorithm')
+     "@google/generative-ai": "^0.24.1", // Use specific version or update as per best practices and security considerations when using npm packages with `npm link` – this is not necessary for a backend project but can be done if you want to use the package in other projects that are linked via NPM (e.g., 'ai-algorithm')
+     "axios": "^1.8.4", // Use specific version or update as per best practices and security considerations when using npm packages with `npm link` – this is not necessary for a backend project but can be done if you want to use the package in other projects that are linked via NPM (e.g., 'ai-algorithm')
+     "cors": "^2.8.5", // Use specific version or update as per best practices and security considerations when using npm packages with `npm link` – this is not necessary for a backend project but can be done if you want to use the package in other projects that are linked via NPM (e.g., 'ai-algorithm')
+     "dotenv": "^16.4.7", // Use specific version or update as per best practices and security considerations when using npm packages with `npm link` – this is not necessary for a backend project but can be done if you want to use the package in other projects that are linked via NPM (e.g., 'ai-algorithm')
+     "express": "^4.21.2", // Use specific version or update as per best practices and security considerations when using npm packages with `npm link` – this is not necessary for a backend project but can be done if you want to use the package in other projects that are linked via NPM (e.g., 'ai-algorithm')
+     "helmet": "^8.1.0", // Use specific version or update as per best practices and security considerations when using npm packages with `npm link` – this is not necessary for a backend project but can be done if you want to use the package in other projects that are linked via NPM (e.g., 'ai-algorithm')
+     "morgan": "^1.10.0" // Use specific version or update as per best practices and security considerations when using npm packages with `npm link` – this is not necessary for a backend project but can be done if you want to use the package in other projects that are linked via NPM (e.g., 'ai-algorithm')
+   },
+   "engines": {                       // Update engines based on best practices, security considerations when using npm packages or modules with `npm link` – this is not necessary for a backend project but can be done if you want to use the package in other projects that are linked via NPM (e.g., 'ai-algorithm')
+     "node": ">=20" // Use specific version as per best practices and security considerations when using npm packages with `npm link` – this is not necessary for a backend project but can be done if you want to use the package in other projects that are linked via NPM (e.g., 'ai-algorithm')
+   }
 }

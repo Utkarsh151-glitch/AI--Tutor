@@ -1,16 +1,8 @@
 {
-  "createdAt": "2026-04-01T10:10:25.687Z",
+  "createdAt": "2026-04-01T19:56:36.448Z",
   "entries": [
     {
-      "filePath": "backend\\package.json",
-      "originalContent": "{\r\n  \"name\": \"ai-algorithm-tutor-backend\",\r\n  \"version\": \"1.0.0\",\r\n  \"private\": true,\r\n  \"main\": \"src/server.js\",\r\n  \"scripts\": {\r\n    \"dev\": \"node --watch src/server.js\",\r\n    \"start\": \"node src/server.js\"\r\n  },\r\n  \"dependencies\": {\r\n    \"@google/generative-ai\": \"^0.24.1\",\r\n    \"axios\": \"^1.8.4\",\r\n    \"cors\": \"^2.8.5\",\r\n    \"dotenv\": \"^16.4.7\",\r\n    \"express\": \"^4.21.2\",\r\n    \"helmet\": \"^8.1.0\",\r\n    \"morgan\": \"^1.10.0\"\r\n  }\r\n}\r\n"
-    },
-    {
-      "filePath": "backend\\src\\server.js",
-      "originalContent": "const { app } = require('./app');\r\nconst { host, port } = require('./config/env');\r\n\r\napp.listen(port, host, () => {\r\n  console.log(`AI Algorithm Tutor backend listening on http://${host}:${port}`);\r\n});\r\n"
-    },
-    {
-      "filePath": "backend\\vercel.json",
+      "filePath": "backend\\sst.config.ts",
       "originalContent": ""
     }
   ]
