@@ -5,7 +5,8 @@
   "main": "src/server.js",
   "scripts": {
     "dev": "node --watch src/server.js",
-    "start": "node src/server.js"
+    "start": "node src/server.js",
+    "build": "npm run start"
   },
   "dependencies": {
     "@google/generative-ai": "^0.24.1",
@@ -15,5 +16,8 @@
     "express": "^4.21.2",
     "helmet": "^8.1.0",
     "morgan": "^1.10.0"
+  },
+  "engines": {
+    "node": ">=20"
   }
 }
