@@ -8,7 +8,7 @@ export default {
   stacks(app) {
     app.stack(function Site({ stack }) {
       const api = new Api(stack, "api", {
-        routes: { "ANY /{proxy+}": "src/server.js" },
+        routes: { "ANY /{proxy+}": "index.js" },
       });
       stack.addOutputs({ ApiEndpoint: api.url });
     });

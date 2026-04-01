@@ -1,9 +1,9 @@
 {
-  "createdAt": "2026-04-01T19:56:36.448Z",
+  "createdAt": "2026-04-01T20:40:21.375Z",
   "entries": [
     {
       "filePath": "backend\\sst.config.ts",
-      "originalContent": ""
+      "originalContent": "import { SSTConfig } from \"sst\";\r\nimport { Api } from \"sst/constructs\";\r\n\r\nexport default {\r\n  config(_input) {\r\n    return { name: \"devoploy-aws-app\", region: \"us-east-1\" };\r\n  },\r\n  stacks(app) {\r\n    app.stack(function Site({ stack }) {\r\n      const api = new Api(stack, \"api\", {\r\n        routes: { \"ANY /{proxy+}\": \"src/server.js\" },\r\n      });\r\n      stack.addOutputs({ ApiEndpoint: api.url });\r\n    });\r\n  }\r\n} satisfies SSTConfig;\r\n"
     }
   ]
 }
