@@ -151,8 +151,8 @@ Captured from the Expo web build (`npx expo export --platform web`).
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/Utkarsh151-glitch/AI--Tutor.git
-cd AI--Tutor
+git clone https://github.com/Utkarsh151-glitch/ai-algorithm-tutor.git
+cd ai-algorithm-tutor
 ```
 
 ### 2. Setup Ollama
@@ -187,15 +187,22 @@ The backend will be available at `http://0.0.0.0:4000`.
 cd mobile
 npm install
 
-# Update API URL with your local IP
-# Edit: src/services/api.ts → API_BASE_URL
-# Replace with: http://<YOUR_LOCAL_IP>:4000
-
 # Start Expo
 npx expo start
 ```
 
+The app works out the backend URL itself (`src/services/api.ts`): `EXPO_PUBLIC_API_URL` if it is set; otherwise the machine running the Expo dev server, port 4000; otherwise `10.0.2.2:4000` on Android and `127.0.0.1:4000` elsewhere. To point it somewhere else, set it before starting Expo, e.g. `EXPO_PUBLIC_API_URL=http://192.168.1.20:4000/api npx expo start`.
+
 > **Finding your IP**: Run `ipconfig` (Windows) or `ifconfig` (Mac/Linux) and use your LAN IP (e.g., `192.168.x.x`).
+
+### Web build
+
+```bash
+cd mobile
+npx expo export --platform web    # static site in mobile/dist
+```
+
+`vercel.json` at the repo root builds this for Vercel. A hosted web build has no backend, so it never calls one: the A* and alpha-beta visualizers work with built-in step descriptions, and the explanation panel and chat say that AI answers need the backend and Ollama running locally.
 
 ### 5. Run on Device
 
@@ -208,7 +215,7 @@ npx expo start
 ## 📁 Project Structure
 
 ```
-AI--Tutor/
+ai-algorithm-tutor/
 ├── backend/
 │   ├── src/
 │   │   ├── config/
