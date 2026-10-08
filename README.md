@@ -2,7 +2,7 @@
 
 # 🧠 AI Algorithm Tutor
 
-**A production-grade mobile app for learning AI algorithms through interactive, step-by-step visualization with real-time AI-powered explanations.**
+**A React Native (Expo) app for learning AI algorithms through interactive, step-by-step visualizations, with explanations from a locally running LLM.**
 
 [![React Native](https://img.shields.io/badge/React_Native-Expo-000?style=for-the-badge&logo=expo&logoColor=white)](https://expo.dev/)
 [![Node.js](https://img.shields.io/badge/Node.js-Express-339933?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/)
@@ -43,7 +43,7 @@ The app runs a local **OLMo 2 (7B)** language model via Ollama, meaning:
 ## ✨ Features
 
 ### 🗺️ A* Pathfinding Visualizer
-- **8×8 interactive grid** with start, goal, and obstacle nodes
+- **6×6 interactive grid** with start, goal, and obstacle nodes
 - Step-by-step execution showing open set, closed set, and optimal path
 - Real-time **f(n) = g(n) + h(n)** cost visualization
 - AI explains *why* each node is chosen using heuristic reasoning
@@ -65,6 +65,18 @@ The app runs a local **OLMo 2 (7B)** language model via Ollama, meaning:
 - **Auto-play mode**: Continuous playback with pause capability
 - **Reset**: Regenerate the grid/tree and start fresh
 - Algorithms condensed to **10–12 meaningful macro-steps** (no 100+ micro-step overload)
+
+---
+
+## 📸 Screenshots
+
+Captured from the Expo web build (`npx expo export --platform web`).
+
+| Desktop browser | Phone-sized viewport |
+|---|---|
+| <img src="docs/screenshots/home-web.png" alt="Home screen, desktop width" width="480"> | <img src="docs/screenshots/home-mobile.png" alt="Home screen, phone width" width="220"> |
+
+> The "Lessons Done" and "AI Mastery" figures on the home screen are static placeholders, not tracked progress.
 
 ---
 
@@ -133,7 +145,7 @@ The app runs a local **OLMo 2 (7B)** language model via Ollama, meaning:
 |------|---------|---------|
 | Node.js | ≥ 18.x | [nodejs.org](https://nodejs.org/) |
 | Ollama | Latest | [ollama.com](https://ollama.com/) |
-| Expo CLI | Latest | `npm install -g expo-cli` |
+| Expo CLI | Bundled | run with `npx expo` (no global install) |
 | Git | Latest | [git-scm.com](https://git-scm.com/) |
 
 ### 1. Clone the Repository
@@ -333,6 +345,14 @@ The UI follows a **Light Tactile** design language inspired by neomorphism and m
 - Neomorphic cards with soft directional shadows
 - No hard borders — tonal depth and shadow separation only
 - Animated spring interactions on all pressable elements
+
+---
+
+## ⚠️ Known limitations
+
+- AI explanations and chat need a local Ollama server with the OLMo 2 model; there is no hosted backend yet, so the visualizers work on their own but AI answers do not without Ollama.
+- `backend/src/services/geminiService.js` exists but is not wired into the routes.
+- Home-screen statistics are placeholder values.
 
 ---
 
