@@ -8,7 +8,7 @@ import { GradientScreen } from '../components/GradientScreen';
 import { MessageBubble } from '../components/MessageBubble';
 import { ChatComposer } from '../components/ChatComposer';
 import { ThinkingOverlay } from '../components/ThinkingOverlay';
-import { askDoubt, getApiBaseUrl, getOllamaStatus } from '../services/api';
+import { AI_BACKEND_AVAILABLE, AI_OFFLINE_MESSAGE, askDoubt, getApiBaseUrl, getOllamaStatus } from '../services/api';
 import { colors } from '../theme/colors';
 
 type ChatMessage = { id: string; role: 'user' | 'assistant'; content: string };
@@ -60,7 +60,7 @@ export const ChatScreen = () => {
     } catch (error) {
       const message = typeof error === 'object' && error && 'response' in error && typeof (error as any).response?.data?.message === 'string'
         ? (error as any).response?.data?.message
-        : 'Could not reach the backend. Make sure Express + Ollama are running.';
+        : AI_BACKEND_AVAILABLE ? 'Could not reach the backend. Make sure Express + Ollama are running.' : AI_OFFLINE_MESSAGE;
       setMessages((prev) => [...prev, { id: `${Date.now()}-fallback`, role: 'assistant', content: message || 'The backend returned an empty error.' }]);
     } finally { setLoading(false); }
   };
@@ -107,7 +107,8 @@ export const ChatScreen = () => {
       <View style={styles.composerWrap}>
         <ChatComposer disabled={loading} onChangeText={setInput} onSend={sendMessage} value={input} />
         <Text style={styles.connectionFoot}>
-          {status === null ? 'Checking backend...'
+          {!AI_BACKEND_AVAILABLE ? 'AI chat needs Ollama running locally (see the README)'
+            : status === null ? 'Checking backend...'
             : status.connected ? `Connected to ${status.modelConfigured}`
             : status.reachable ? `Model ${status.modelConfigured} unavailable`
             : `Backend unavailable: ${getApiBaseUrl()}`}
