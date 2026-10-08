@@ -1,0 +1,6 @@
+{
+  "installCommand": "npm ci --prefix mobile",
+  "buildCommand": "cd mobile && npx expo export --platform web",
+  "outputDirectory": "mobile/dist",
+  "framework": null
+}
