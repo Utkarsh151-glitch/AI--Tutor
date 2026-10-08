@@ -2,8 +2,9 @@
  * ExplanationBox – Light tactile AI explanation panel
  */
 import React from 'react';
-import { ActivityIndicator, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { ActivityIndicator, Linking, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { AI_BACKEND_AVAILABLE, README_SETUP_URL } from '../services/api';
 import { colors } from '../theme/colors';
 
 export type ExplanationEntry = { step: number; label: string; explanation: string };
@@ -29,11 +30,28 @@ export const ExplanationBox = ({
         <View style={styles.countBadge}><Text style={styles.countText}>{explanations.length}</Text></View>
       </View>
 
+      {!AI_BACKEND_AVAILABLE ? (
+        <View style={styles.offlineNote}>
+          <Ionicons color={colors.textMuted} name="information-circle" size={18} />
+          <Text style={styles.offlineText}>
+            AI explanations need Ollama running locally.{' '}
+            <Text accessibilityRole="link" style={styles.offlineLink} onPress={() => void Linking.openURL(README_SETUP_URL)}>
+              See the README
+            </Text>
+            {' '}to set it up. Built-in step descriptions are shown instead.
+          </Text>
+        </View>
+      ) : null}
+
       <ScrollView ref={scrollRef} style={styles.scrollArea} nestedScrollEnabled showsVerticalScrollIndicator={false}>
         {explanations.length === 0 && !loading ? (
           <View style={styles.emptyState}>
             <Ionicons color={colors.textMuted} name="arrow-forward-circle" size={20} />
-            <Text style={styles.emptyText}>Tap "Next Step" to begin and receive AI explanations.</Text>
+            <Text style={styles.emptyText}>
+              {AI_BACKEND_AVAILABLE
+                ? 'Tap "Next Step" to begin and receive AI explanations.'
+                : 'Tap "Next Step" to begin. Each step gets a built-in description.'}
+            </Text>
           </View>
         ) : null}
 
@@ -80,6 +98,12 @@ const styles = StyleSheet.create({
     backgroundColor: colors.surfaceContainerLow, borderRadius: 14,
   },
   emptyText: { flex: 1, color: colors.textMuted, fontSize: 13, lineHeight: 20 },
+  offlineNote: {
+    flexDirection: 'row', alignItems: 'flex-start', gap: 8, padding: 10,
+    backgroundColor: colors.surfaceContainerLow, borderRadius: 12,
+  },
+  offlineText: { flex: 1, color: colors.textSecondary, fontSize: 12, lineHeight: 18 },
+  offlineLink: { color: colors.primary, fontWeight: '700', textDecorationLine: 'underline' },
   entryWrap: {
     marginBottom: 12, paddingBottom: 12,
     borderBottomWidth: 1, borderBottomColor: 'rgba(186, 186, 175, 0.15)',
